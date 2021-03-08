@@ -30,23 +30,45 @@ task linkGitlab (type: Exec) {
     commandLine 'scripts/link-gitlab-repos.sh'
 }
 
-task launchGitlab (type: Exec) {
+task gitlablaunch (type: Exec) {
     group = "repo"
     workingDir './'
     println("linking github")
     commandLine 'scripts/launchGitlab.sh'
 }
 
-task initGitlab (type: Exec) {
+task gitlabInit (type: Exec) {
     group = "repo"
     workingDir './'
     println("initializing github")
     commandLine 'scripts/init-gitlab.sh'
 }
 
-task destroyGitlab (type: Exec) {
+task gitlabDestroy (type: Exec) {
     group = "repo"
     workingDir './'
     println("destroying github")
     commandLine 'scripts/destroy-gitlab.sh'
+}
+
+
+
+
+task jenkinsLaunch (type: Exec) {
+    group = "repo"
+    workingDir './'
+    println("linking github")
+    commandLine 'scripts/jenkins-launch.sh'
+}
+task jenkinsDestroy (type: Exec) {
+    group = "repo"
+    workingDir './'
+    println("destroying jenkins")
+    commandLine 'scripts/jenkins-destroy.sh'
+}
+task jenkinsInit (type: Exec) {
+    group = "repo"
+    workingDir './'
+    println("initializing jenkins")
+    commandLine 'scripts/jenkins-init.sh'
 }

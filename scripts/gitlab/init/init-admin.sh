@@ -13,7 +13,7 @@ MYPASSWORD=password
 REPO=$DEFAULT_REPO
 HOST=office-localdomain:18080
 
-#sed -i"" "s#\# gitlab_rails\['initial_root_password.*#gitlab_rails\['initial_root_password'\] = \""${GITLAB_INITIAL_ROOT_PASSWD}"\"#g" /etc/gitlab/gitlab.rb
+#sed -i"" "batch-install-jenkins-plugins.sh#\# gitlab_rails\['initial_root_password.*#gitlab_rails\['initial_root_password'\] = \""${GITLAB_INITIAL_ROOT_PASSWD}"\"#g" /etc/gitlab/gitlab.rb
 #gitlab-ctl reconfigure
 #echo "u = User.where(id:1).first ; u.password = '"$GITLAB_INITIAL_ROOT_PASSWD"' ; u.password_confirmation = '"$GITLAB_INITIAL_ROOT_PASSWD"' ; u.reset_password = false ; u.save!" |  gitlab-rails console
 

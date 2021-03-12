@@ -12,63 +12,81 @@ repositories {
 
 dependencies {
     compile 'org.codehaus.groovy:groovy-all:2.3.11'
+    compile 'com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.10.3'
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.10.3'
+//    compile 'com.fasterxml.jackson.core:JsonFactory:2.12.2'
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.12.2'
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
 
 
-task linkGithub (type: Exec) {
+task 'link-github' (type: Exec) {
     group = "repo"
     workingDir './'
     println("linking github")
     commandLine 'scripts/link-github-repos.sh'
 }
 
-task linkGitlab (type: Exec) {
+task 'link-gitlab' (type: Exec) {
     group = "repo"
     workingDir './'
     println("linking gitlab")
     commandLine 'scripts/link-gitlab-repos.sh'
 }
 
-task gitlablaunch (type: Exec) {
+task 'gitlab-launch' (type: Exec) {
     group = "repo"
     workingDir './'
     println("linking github")
-    commandLine 'scripts/launchGitlab.sh'
+    commandLine 'scripts/gitlab-launch.sh'
 }
 
-task gitlabInit (type: Exec) {
+task 'gitlab-init' (type: Exec) {
     group = "repo"
     workingDir './'
-    println("initializing github")
-    commandLine 'scripts/init-gitlab.sh'
+    println("initializing gitlab")
+    commandLine 'scripts/gitlab-init.sh'
 }
 
-task gitlabDestroy (type: Exec) {
+task 'gitlab-destroy' (type: Exec) {
     group = "repo"
     workingDir './'
     println("destroying github")
-    commandLine 'scripts/destroy-gitlab.sh'
+    commandLine 'scripts/gitlab-destroy.sh'
 }
 
 
 
 
-task jenkinsLaunch (type: Exec) {
+task 'jenkins-launch' (type: Exec) {
     group = "repo"
     workingDir './'
     println("linking github")
     commandLine 'scripts/jenkins-launch.sh'
 }
-task jenkinsDestroy (type: Exec) {
+task 'jenkins-destroy' (type: Exec) {
     group = "repo"
     workingDir './'
     println("destroying jenkins")
     commandLine 'scripts/jenkins-destroy.sh'
 }
-task jenkinsInit (type: Exec) {
+task 'jenkins-init' (type: Exec) {
     group = "repo"
     workingDir './'
     println("initializing jenkins")
     commandLine 'scripts/jenkins-init.sh'
+}
+
+
+task 'network-launch' (type: Exec) {
+    group = "repo"
+    workingDir './'
+    println("launching network")
+    commandLine 'scripts/network-launch.sh'
+}
+task 'network-destroy' (type: Exec) {
+    group = "repo"
+    workingDir './'
+    println("destroying network")
+    commandLine 'scripts/network-destroy.sh'
 }

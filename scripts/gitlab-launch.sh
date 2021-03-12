@@ -1,6 +1,12 @@
 #!/bin/bash
 
-export GITLAB_HOME=/srv/gitlab
+
+if [[ $OSTYPE == "darwin"* ]]; then
+  export GITLAB_HOME=/var/gitlab
+else
+  export GITLAB_HOME=/srv/gitlab
+fi
+
 BASEDIR=`pwd`
 echo $BASEDIR
 
